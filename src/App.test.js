@@ -1,15 +1,18 @@
-import { render, screen } from '@testing-library/react'
-import App from './App'
-// import renderer from 'react-test-renderer'
+import './App.css'
+import GitHubCard from './GitHubCard/GitHubCard'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
-// This first test is commented out since we have the other snapshot test that checks the GitHubCard component
-// test('renders a snapshot', () => {
-//   const tree = renderer.create(<App/>).toJSON()
-//   expect(tree).toMatchSnapshot()
-// })
+function App() {
+  return (
+    <div className="App pt-5" >
+      <Row>
+        <Col style={{display: 'flex', justifyContent: 'center'}}>
+          <GitHubCard />
+        </Col>
+      </Row>
+    </div>
+  )
+}
 
-test('renders text MickeyMouse', () => {
-  render(<App />)
-  const nameElement = screen.getByText(/mickey mouse/i)
-  expect(nameElement).toBeInTheDocument()
-});
+export default App
